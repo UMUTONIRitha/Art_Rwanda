@@ -1,0 +1,25 @@
+{%extends 'base.html'%}
+{% block content %}
+<div class="container">
+  <div class="row" style="margin-top:4%">
+    {% if artap%}
+    <h5 class='text-center'>You have {{ artap|length }} project with name {{message }}</h2>
+        {% else %}
+        <h5 class="text-center"> You have 0 project with name search <strong>{{message}}</strong></h5>
+        <a class="d-block mx-auto" href="/">
+            <button class="btn btn-sm btn-outline-info d-block mx-auto">Back Home</button>
+        </a>
+        {% endif %}
+        <hr style="margin-left:5%;margin-right:12%">
+    {% if artap %}
+    {% for artname in artap %}
+    <div class="col-md-4">
+      <h3>{{art.title}}</h3>
+      <img src="{{artname.art_image.url}}" width="400" height="300" class="img-responsive" alt="Image">
+      <p style="margin-top: 5%">{{artname.description}}</p>
+    </div>
+    {% endfor %}
+    {% endif %}
+  </div>
+</div>
+{% endblock %}
