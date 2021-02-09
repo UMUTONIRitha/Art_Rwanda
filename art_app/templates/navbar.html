@@ -16,15 +16,18 @@
             <div class="home">
                 <a class="navbar-brand" href="{%url 'index'%}">
 
-                    <span><i class="fas fa-trophy" style="color: black;">Art</i></span>
+                    <span style="color: black;">Art-Rwanda</span>
 
                 </a>
             </div>
 
-            <form action="{% url 'search' %}" class="form-inline my-2 my-lg-0">
-                <input type="text" class="input-sm form-control" name="project_name" placeholder="Search" style="border-radius:10px;">
+            <div class="search" style="margin-right:30%">
+        <form action="{% url 'search' %}" class="form-inline my-2 my-lg-0">
+          <input type="text" class="input-sm form-control" name="art_name" placeholder="Search"
+            style="border: 0px; border-bottom: 2px solid black; outline: none; margin-left: 60%;background-color:white;">
 
-            </form>
+        </form>
+      </div>
 
       
 <div class="category">
@@ -39,7 +42,7 @@
             {% if user.is_authenticated %}
             <ul class="nav justify-content-end">
 
-                <a class="nav-link" href="{%url 'upload'%}" style="color:black;">Submit art</a>
+                
 
 
 
