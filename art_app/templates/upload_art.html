@@ -1,0 +1,28 @@
+{% load bootstrap4 %} 
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Upload</title>
+  {{form.media}}
+  {% block styles %} 
+  {% bootstrap_css %}
+  <link href="https://fonts.googleapis.com/css2?family=Lancelot&display=swap" rel="stylesheet">
+  {% endblock %}
+</head>
+<body style="background-color:gainsboro">
+<div class="container" style="margin-top:5%;font-family: 'Lancelot', cursive;color:black;">
+  <h1 class="text-center" style="margin-top: 3%;">Upload your art</h1>
+  <form  action="{%url 'upload' %}" method="post" enctype="multipart/form-data">
+    {%csrf_token%}
+    {% bootstrap_form form%}
+    <input type="submit" class="btn btn-outline-info btn-lg" value="Post">
+  </form>
+   {% block scripts %}
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  {% bootstrap_javascript %} {% endblock %}
+</div>
+</body>
+</html>
