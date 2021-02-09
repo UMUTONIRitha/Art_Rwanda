@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+{% load static %}
+{% block content %}
+<div class="container" style="margin-top:3%;font-family: 'Lancelot', cursive;">
+    <div class="row">
+        <div class="col-md-7">
+            <div class="card mb-4 shadow-sm">
+                {% for image in ones_art %}
+                <span style="font-weight: bold;font-size: 20px; margin:3%">{{image.title}}</span>
+                <a href="{{image.link}}">
+                    <img src="{{image.art_image.url}}" width="100%"></a>
+                <div class="card-body">
+
+                    <span style="float:right">
+                        <a href="{%url 'comment' image.id%}" class="btn btn-default btn-sm">Add Comment</a></span>
+
+                    <p style="font-size: 15px;">{{image.description}}</p>
+                    <p style="font-weight: bold;font-size: 15px;color: rgba(0, 0, 0, 0.459);margin-top: 3px;">
+                        View all comments...</p>
+                    {% for reviews in image.comments_set.all %}
+                    <span>
+                        <p style="font-size: 15px;margin-top: -0.3cm;">
+                            <span style="font-weight: bold; font-size: 15px">{{reviews.posted_by.user | lower }}</span>
+                            {{reviews.comment}}
+                        </p>
+                    </span>
+                    {% endfor %}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+
+{% endblock %}
