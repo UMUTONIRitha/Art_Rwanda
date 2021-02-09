@@ -43,14 +43,14 @@ def add_profile(request):
     current_user = request.user
     profile = Profile.objects.filter(id = current_user.id)
     if request.method == 'POST':
-        form = NewArtForm(request.POST, request.FILES)
+        form = NewProfileForm(request.POST, request.FILES)
         if form.is_valid():
             caption = form.save(commit=False)
             caption.user = current_user
             caption.save()
             return redirect('myprofile')
     else:
-        form = NewArtForm()
+        form = NewProfileForm()
     return render(request, 'edit_profile.html', {"form":form})  
 
 @login_required(login_url='accounts/login/')
@@ -65,7 +65,7 @@ def search_art(request):
         search_term = request.GET.get("art_name")
         searched_art = Art.search_by_title(search_term)
         message = f"{search_term}"
-        return render(request, "search.html",{"message":message,"art": searched_project})
+        return render(request, "search.html",{"message":message,"art": searched_art})
     else:
         message = "You haven't searched for any term"
         return render(request, 'search.html',{"message":message})
