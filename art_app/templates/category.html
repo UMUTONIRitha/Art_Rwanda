@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container" style="font-family: 'Libre Caslon Display', serif;">
+   <h2>Art</h2>
+    <hr>
+    {% if category_images %}
+     
+    <div class="card-columns">
+        {% for art in category_images %}
+
+        <div class="card" data-toggle="modal" data-target="#{{art.id}}">
+            <img src="{{art.art_image.url}}" alt="{{art.name}}" class="card-img">
+            <p>{{art.description}}</p>
+                      
+                        <p>{{art.category}}</p>
+        </div>
+        <div class="modal fade" id="{{art.id}}" tabindex="-1" role="dialog" aria-labelledbly="exampleModalCenterTitle"
+            aria-hidden="true">
+
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content modalcard">
+                    <div class="modal-header">
+                        <h5 class="modal-title d-block mx-auto" id="exampleModalLongTitle">{{art.name}}</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+
+                    
+
+                    
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+</div>
+{% endblock %}
