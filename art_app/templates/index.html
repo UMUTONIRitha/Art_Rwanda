@@ -1,2 +1,54 @@
+{%extends 'base.html'%}
+{% load static %}
+{% block content %}
+{{block.super}}
 
-<h1> Django Tutorial</h1>
+
+<div class="jumbotron"
+    style="background-image:url('https://img.freepik.com/free-vector/luxury-award-nomination-background_165286-124.jpg?size=626&ext=jpg') ;background-repeat:no-repeat;background-position:center center;background-size:cover;height:100vh;margin-top:-1;color:black;">
+
+    <h1 class="text-center" style="color:khaki;margin-top:6%;font-family: 'Lancelot', cursive;">ARTS</h1>
+
+</div>
+
+
+
+<div class="container" style="padding-top: 3%;">
+    <h2 class="text-center" style="margin-bottom: 3%;font-family: 'Lancelot', cursive;
+    ">Submitted Artss</h2>
+    <div class="row">
+        {% for art in all_arts %}
+        <div class="col-md-4">
+            <div class="card mb-4 shadow-lg">
+                <a href="{% url 'oneart' art.id %}">
+                    <img src="{{art.art_image.url}}" width="100%">
+                </a>
+                <div class="card-body">
+                    
+                        <span style="font-family: 'Rancho', cursive;">{{art.title}} </span>
+                        <span style="float:right;font-family: 'Rancho', cursive;"><small>{{art.date|date:"F d,Y"}}</small> </span><br>
+
+                    <div class="foot">
+                     <small style="font-family: 'Old Standard TT', serif;">{{art.description}}</small><br><br>
+                        <span><small style="text-transform:capitalize;font-family: 'Rancho', cursive;">{{art.user}}</small> </span>
+                        <button class="btn btn-outline-default" style=" float:right;font-family: 'Rancho', cursive;"><a href="{% url 'oneart' art.id %}">view more </a></button>
+                        <p>category:{{art.category}}</p>
+                    </div>
+                    
+                </div>
+               
+
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+
+{% endblock %}
+
+{% block scripts %}
+{{block.super}}
+<script type="text/javascript" src="{%static 'js/newsletter.js'%}">
+</script>
+{% endblock %}
