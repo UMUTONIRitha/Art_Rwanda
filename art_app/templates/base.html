@@ -8,9 +8,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="HandheldFriendly" content="true">
   {% if title %}
-  <title>Awwards - {{title}}</title>
+  <title>Arts - {{title}}</title>
   {% else %}
-    <title> Awwards </title>
+    <title> Arts </title>
   {% endif %}
   {% block styles %}
     {% bootstrap_css %}
@@ -21,7 +21,7 @@
      <script src="https://kit.fontawesome.com/83d474e45f.js" crossorigin="anonymous"></script>
   {% endblock %}
 </head>
-<body style="background-color: gainsboro;">
+<body>
     {% include "navbar.html" %}
     {% block content %}
      {%endblock%}
