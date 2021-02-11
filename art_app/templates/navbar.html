@@ -10,21 +10,21 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-white bg-white static-top" style="background-color:white;font-family: 'Trocchi', serif;">
+    <nav class="navbar navbar-expand-lg navbar-white bg-black static-top" style="background-color:black;font-family: 'Trocchi', serif;">
         <div class="container">
 
             <div class="home">
                 <a class="navbar-brand" href="{%url 'index'%}">
 
-                    <span style="color: black;">Art-Rwanda</span>
+                    <span style="color: white;font-size:15px;">Art- <img src="https://img.freepik.com/free-vector/flag-rwanda-background-template_19426-608.jpg?size=626&ext=jpg" alt="" width="50px" height="50px"> </span>
 
                 </a>
             </div>
 
-            <div class="search" style="margin-right:30%">
+            <div class="search" style="margin-right:10%;font-size:15px;">
         <form action="{% url 'search' %}" class="form-inline my-2 my-lg-0">
           <input type="text" class="input-sm form-control" name="art_name" placeholder="Search"
-            style="border: 0px; border-bottom: 2px solid black; outline: none; margin-left: 60%;background-color:white;">
+            style="border: 0px; border-bottom: 2px solid white; outline: none; margin-left: 40%;background-color:black;color:white;font-size:18px;">
 
         </form>
       </div>
@@ -33,7 +33,7 @@
 <div class="category">
       <span id="categories">
         {% for category in categories %}
-        <a  href="/category/{{category.name}}" >{{category.name}} &nbsp; &nbsp;</a>
+        <a  href="/category/{{category.name}}" style="color: white;font-size:15px; text-transform:capitalize;">{{category.name}} &nbsp; &nbsp;</a>
         {% endfor %}
       </span>
     </div>
@@ -42,20 +42,15 @@
             {% if user.is_authenticated %}
             <ul class="nav justify-content-end">
 
-                
-
-
-
-                <a class="nav-link" href="{%url 'myprofile'%}"
-                    style="font-family: 'Noto Serif JP', serif;color:black;text-transform:capitalize;"><i
+                 <a class="nav-link" href="{%url 'myprofile'%}"
+                    style="font-family: 'Noto Serif JP', serif;color:white;text-transform:capitalize;font-size:15px;"><i
                         class="fas fa-user fa-sm"></i>{{user.username}}</a>
 
                 <div class="dropdown" style="margin-top: 4%">
                     <a class="down" data-toggle="dropdown" style="font-family: 'Noto Serif JP', serif;color:black;"><i
-                            class="fa fa-sun-o" style="font-size: 28px;color: black;"></i></a>
+                            class="fa fa-sun-o" style="font-size: 15px;color: white;">Account</i></a>
                     <div class="dropdown-menu">
-                        <a class="dropdown-item" href="{%url 'index'%}"
-                            style="font-family: 'Noto Serif JP', serif;color:black;">home</a>
+                        
                         <a class="nav-link" href="/accounts/register/" style="color:black">Register</a>
                       
                         <a class="dropdown-item" href="/accounts/password/change"
@@ -67,7 +62,7 @@
                 {% else %}
                 
                     <a class="nav-link" href="/accounts/login"
-                        style="font-family: 'Noto Serif JP', serif;color:black;">Login</a>
+                        style="font-family: 'Noto Serif JP', serif;color:white;">Login</a>
                
             </ul>
             {% endif %}

@@ -13,7 +13,8 @@ def index(request):
     categories = Category.get_categories()
     print(categories)
     return render(request, 'index.html', {"all_arts": all_arts, "ones_art":ones_art, "categories": categories})
-
+    
+@login_required(login_url='/accounts/login/')
 def image_category(request, category):
     images = Art.filter_by_category(category)
     print(images)
@@ -33,7 +34,7 @@ def upload_art(request):
         form = NewArtForm()
     return render(request, 'upload_art.html', {"form": form})
 
-
+@login_required(login_url='/accounts/login/')
 def one_art(request,id):
     ones_art = Art.objects.filter(id = id)
     return render(request,'art.html',{"ones_art":ones_art,}) 

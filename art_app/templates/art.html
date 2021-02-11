@@ -10,13 +10,17 @@
                 {% for image in ones_art %}
                 <span style="font-weight: bold;font-size: 20px; margin:3%">{{image.title}}</span>
                 <a href="{{image.link}}">
-                    <img src="{{image.art_image.url}}" width="100%" height="300px" class="img-responsive"></a>
+                    <img src="{{image.art_image.url}}" width="100%" class="img-responsive"></a>
                 <div class="card-body">
-
+                    <span><small
+                        style="text-transform:capitalize;font-family: 'Rancho', cursive;">posted by__{{image.user}}</small>
+                </span>
+                
                     <span style="float:right">
                         <a href="{%url 'comment' image.id%}" class="btn btn-default btn-sm">Add Comment</a></span>
 
                     <p style="font-size: 15px;">{{image.description}}</p>
+                    <p style="font-family: 'Old Standard TT', serif;font-size: 15px;">category:{{image.category}}</p>
                     <p style="font-weight: bold;font-size: 15px;color: rgba(0, 0, 0, 0.459);margin-top: 3px;">
                         View all comments...</p>
                     {% for reviews in image.comments_set.all %}

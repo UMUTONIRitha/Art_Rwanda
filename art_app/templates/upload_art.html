@@ -13,7 +13,10 @@
   {% endblock %}
 </head>
 <body style="background-color:gainsboro">
-<div class="container" style="margin-top:5%;font-family: 'Lancelot', cursive;color:black;">
+<div class="container-fluid" style="background-image:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url('https://pbs.twimg.com/media/Eb9ri4FXsAEDWDK.jpg') ;background-repeat:no-repeat;background-size:cover;height:110vh;color:white;font-family: 'Lancelot', cursive;color:black;padding-top:30px;background-position: center;color:white;">
+<div class="row">
+<div class="col-md-4"></div>
+    <div class="col-md-4">
   <h1 class="text-center" style="margin-top: 3%;">Upload your art</h1>
   <form  action="{%url 'upload' %}" method="post" enctype="multipart/form-data">
     {%csrf_token%}
@@ -23,6 +26,9 @@
    {% block scripts %}
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   {% bootstrap_javascript %} {% endblock %}
+</div>
+</div>
+</div>
 </div>
 </body>
 </html>
