@@ -15,7 +15,10 @@
 <body>
 <div class="container-fluid"
   style="background-image:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url('https://di2ponv0v5otw.cloudfront.net/posts/2020/01/28/5e30a341abe1ce823bb2127e/m_5e30a34b8557af49b64d2301.jpg') ;background-repeat:no-repeat;background-size:cover;height:100vh;background-position: center;color:white;font-family: 'Lancelot', cursive;">
-
+<div class="row">
+<div class="col-md-4"></div>
+    <div class="col-md-4">
+<h1 class="text-center" style="margin-top: 3%;">Upload your art</h1>
   <form  action="{%url 'comment' art_id%}" method="post" enctype="multipart/form-data" style="margin-right:15%;margin-left:15%;">
     {%csrf_token%}
     {% bootstrap_form form%}
@@ -25,6 +28,9 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   {% bootstrap_javascript %} 
   {% endblock %}
+</div>
+</div>
+</div>
 </div>
 </body>
 </html>
