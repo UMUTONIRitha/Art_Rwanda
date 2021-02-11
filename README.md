@@ -39,7 +39,7 @@
 
 ## Live link 
 
-<!-- [Here is the Link: Hood](https://rithahood.herokuapp.com/ "hood") -->
+[Here is the Link: Art-Rwanda](https://rithart.herokuapp.com/ "Art")
 
 ## Contact Information
 
